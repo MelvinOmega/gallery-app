@@ -1,6 +1,5 @@
 from django.test import TestCase
 from .models import Image,Location,Category
-# from .models import Editor,Article,tags
 # Create your tests here.
 class TestImage(TestCase):
     def setUp(self):
@@ -35,11 +34,7 @@ class TestImage(TestCase):
         found_image = self.image_test.get_image_by_id(self.image_test.id)
         image = Image.objects.filter(id=self.image_test.id)
         self.assertTrue(found_image, image)         
-
-    # def test_search_image_by_location(self):
-    #     self.image_test.save_image()
-    #     found_images = self.image_test.filter_by_location(location='moringa')
-    #     self.assertTrue(len(found_images) == 1)    
+  
 
 class TestLocation(TestCase):
     def setUp(self):
@@ -53,11 +48,6 @@ class TestLocation(TestCase):
         self.location.save_location()
         locations = Location.get_locations()
         self.assertTrue(len(locations) > 0)
-
-    # def test_get_locations(self):
-    #     self.location.save_location()
-    #     locations = Location.get_locations()
-    #     self.assertTrue(len(locations) > 1)
 
     def test_update_location(self):
         new_location = 'kericho'
