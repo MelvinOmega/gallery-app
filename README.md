@@ -11,14 +11,14 @@ This is a personal gallery application that you display your photos for others t
 ## BDD
 * View different photos that interest me.
 * Click on a single photo to expand it and also view the details of the photo. The photo details must appear on a modal within the same route as the main page.
-* Search for different categories of photos. (ie. Workspace, Food)
+* Search for different categories of photos. (ie. travel, Food)
 * Copy a link to the photo to share with my friends.
 * View photos based on the location they were taken.
 ## Requirements
 
 You Require to install
 
-* Python3.6
+* Python3.9
 * Django
 * Pip
 * Virtual environment
@@ -45,13 +45,13 @@ You Require to install
 
 ## Technology Used
 
-* Python 3.6
+* Python 3.9
 * Bootstrap 
 * Django
 
 ### Contact Info:
 For More Info
-irenekasiva75@gmail.com
+melvinomega151@gmail.com
 
 ## License
-The MIT License (MIT) Copyright © 2020 Irene Kasiva
+The MIT License (MIT) Copyright © 2021 Melvin Omega
