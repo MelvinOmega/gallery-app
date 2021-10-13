@@ -2,11 +2,11 @@
 
 
 {% block content %}
-<div class="container-fluid landing" style="background-color: beige;">
-    <h2 class="text-center imagea">My Gallery</h2>
+<div class="container-fluid landing" style="background-color: rgb(10, 243, 29);">
+    <h2 class="text-center imagea" >My Gallery</h2>
 </div>
 
-<div class="container-fluid boded" id="b" style="background-color: white;">
+<div class="container-fluid boded" id="b" style="background-color: rgb(255, 255, 255);">
     <div class="container">
 
 
@@ -43,8 +43,6 @@
                 <h2>PHOTOS DISPLAY</h2>
                 <div>
                     <div class="card-columns">
-                        <!-- <img src="../../../media/images/photo-1598266628171-7e00f76a27a8.jpeg" alt=""> -->
-
                         {% for image in images %}
                         <div class="card" data-toggle="modal" data-target="#{{image.id}}">
                             <img src="{{image.image.url}}" alt="{{image.name}}" class="card-img">
