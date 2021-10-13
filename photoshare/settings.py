@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap',
+    'photos',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +73,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'photoshare.wsgi.application'
+
+cloudinary.config( 
+  cloud_name = "melvinomega1", 
+  api_key = "144447625529571", 
+  api_secret = "Tz48QXLwt39FuoXm5gMfFnufESw" 
+)
 
 
 # Database
