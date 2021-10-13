@@ -10,23 +10,35 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+import django_on_heroku
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a%92&3(+^!_86$)*um*qg_l!0d2z7a*+huq&gi(2zh24%bhe9s'
+# SECRET_KEY = 'django-insecure-a%92&3(+^!_86$)*um*qg_l!0d2z7a*+huq&gi(2zh24%bhe9s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = 'melvin123'
 DEBUG = True
+  
 
 ALLOWED_HOSTS = []
 
@@ -42,9 +54,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photos',
     'cloudinary',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,11 +88,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'photoshare.wsgi.application'
 
-cloudinary.config( 
-  cloud_name = "melvinomega1", 
-  api_key = "144447625529571", 
-  api_secret = "Tz48QXLwt39FuoXm5gMfFnufESw" 
-)
+
 
 
 # Database
@@ -86,8 +96,8 @@ cloudinary.config(
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'gallery',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gallery',
         'USER': 'moringa',
         'PASSWORD': 'melvin',
     }
@@ -129,10 +139,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+cloudinary.config( 
+  cloud_name = "melvinomega1", 
+  api_key = "144447625529571", 
+  api_secret = "Tz48QXLwt39FuoXm5gMfFnufESw" 
+)
+
+django_on_heroku.settings(locals())
+
+
